@@ -14,13 +14,13 @@ let acid = ""
 let posterPic = ""
 let lyric_DL = ""
 let c = 0
-    // var d1 = $.Deferred();
-    // var d2 = $.Deferred();
-    // var d3 = $.Deferred();
-    // var d4 = $.Deferred();
 let str2 = ""
 let str = ""
-load()
+
+$(document).ready(function(){
+    load();
+})
+
 //renderLast()
 $("#toLogin").click(function() {
     event.preventDefault()
@@ -195,25 +195,7 @@ function apic() {
 }
 
 function loadaa(Autoplay) {
-   
-    // if(apto=="no"){
-    //     let rr = 0
-    // }else{
-    //     let rr = apto
-    // }
-    // setTimeout(function() {
-    // ap = new APlayer({
-    //     container: document.getElementById('player'),
-    //     theme: '#e9e9e9',
-    //     listFolded: false,
-    //     // fixed: true,
-    //     listMaxHeight: 90,
-    //     lrcType: 1,
-    //     preload: "none",
-    //     audio: sallist,
-    //     autoplay: true
-    // });
-    if(sallist.length!=0){
+    if(sallist.length!=0){ //Check Playlist is not empty
         ap = new cplayer({
             element: document.getElementById('app'),
             playlist: sallist,
@@ -254,16 +236,12 @@ function renderPlaylist() {
 // loadaa()
 
 function load() {
-
-
     if (localStorage.getItem("mymusic")) {
         sallist = JSON.parse(localStorage.getItem("mymusic"))
-        
     }
     if (localStorage.getItem("myid")) {
         acid = JSON.parse(localStorage.getItem("myid"))
     }
-
     str2 = `
     <li class="list-group-item d-flex justify-content-center align-items-center" >
     <span>上次BO放</span>
@@ -277,12 +255,11 @@ function renderLast() {
         // console.log(item)
 
         str += `
-    
-    <li class="list-group-item d-flex justify-content-between align-items-center toPlay" data-toPlay="${index}">
-    <span>${sallist[index]["name"]}-<span class="artist">${sallist[index]["artist"]}</span></span>
-    <a class="badge badge-primary badge-pill" href="${sallist[index]["src"]}" download="${sallist[index]["name"]}.mp3"><i class="fas fa-download"></i></a>
-    </li>
-    `
+            <li class="list-group-item d-flex justify-content-between align-items-center toPlay" data-toPlay="${index}">
+            <span>${sallist[index]["name"]}-<span class="artist">${sallist[index]["artist"]}</span></span>
+            <a class="badge badge-primary badge-pill" href="${sallist[index]["src"]}" download="${sallist[index]["name"]}.mp3"><i class="fas fa-download"></i></a>
+            </li>
+            `
     })
     $("#list").html(str2 + str)
     loadaa("no")
@@ -386,6 +363,7 @@ function getUserID2() {
     $("#exampleModalCenter").modal("hide")
 
 }
+
 //取得全部播放清單
 function getAllList() {
     $.ajax({
