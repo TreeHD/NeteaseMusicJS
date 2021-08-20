@@ -2,9 +2,9 @@
 Easy to Use Frontend for Netease Music.
 
 ## Dependency
-jQuery
-Boostrap 
-[Binaryify/NeteaseCloudMusicApi](https://github.com/Binaryify/NeteaseCloudMusicApi "Binaryify/NeteaseCloudMusicApi")
+1. jQuery
+2. Boostrap 
+3. [Binaryify/NeteaseCloudMusicApi](https://github.com/Binaryify/NeteaseCloudMusicApi "Binaryify/NeteaseCloudMusicApi")
 
 ## Deploy
 1. Deploy your own [Binaryify/NeteaseCloudMusicApi](https://github.com/Binaryify/NeteaseCloudMusicApi "Binaryify/NeteaseCloudMusicApi")
